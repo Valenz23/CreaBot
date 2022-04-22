@@ -1,0 +1,19 @@
+version: "3.0"
+rules:
+
+- rule: Activate Data Form
+  steps:
+  - intent: afirmar
+  - action: data_form
+  - active_loop: data_form
+
+- rule: Submit Data Form
+  condition:
+    - active_loop: data_form
+  steps:
+    - action: data_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_submit
+    - action: utter_slots_values

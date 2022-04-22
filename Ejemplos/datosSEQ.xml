@@ -1,0 +1,37 @@
+<ficheroSEQ>
+
+	<entidad>
+		<nombre>Nombre</nombre>
+		<tipo>text</tipo>		
+	</entidad>
+	<entidad>
+		<nombre>Telefono</nombre>
+		<tipo>float</tipo>		
+	</entidad>
+
+	<intent>
+		<ejemplo>Me llamo [Pablo](Nombre)</ejemplo>
+		<ejemplo>Me llamo [Ines](Nombre)</ejemplo>
+		<ejemplo>Mi nombre es [Susana](Nombre)</ejemplo>
+		<ejemplo>Mi nombre es [Oscar](Nombre)</ejemplo>
+		<ejemplo>Soy [Antonio](Nombre)</ejemplo>
+		<ejemplo>Soy [Manuela](Nombre)</ejemplo>
+		<ejemplo>[Raquel](Nombre)</ejemplo>
+		<ejemplo>[Macarena](Nombre)</ejemplo>		
+		<ejemplo>Es [Carlos](Nombre)</ejemplo>		
+		<ejemplo>Es [Elena](Nombre)</ejemplo>	
+		<ejemplo>[Yurena](Nombre) es mi nombre</ejemplo>		
+		<ejemplo>[Raul](Nombre) es mi nombre</ejemplo>		
+		<ejemplo>[Olga](Nombre) me llaman</ejemplo>		
+		<ejemplo>[Hernan](Nombre) me llaman</ejemplo>		
+	</intent>
+	
+	<intent>
+		<ejemplo>Mi telefono es [987645374](Telefono)</ejemplo>
+		<ejemplo>Mi numero es [897463728](Telefono)</ejemplo>
+		<ejemplo>Es [978124367](Telefono)</ejemplo>
+		<ejemplo>[676357968](Telefono)</ejemplo>
+		<ejemplo>El numero de telefono es [677119826](Telefono)</ejemplo>		
+	</intent>	
+	
+</ficheroSEQ>

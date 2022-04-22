@@ -1,0 +1,48 @@
+<ficheroFAQ>
+
+	<intent>
+		<ejemplo>¿Cúal es el número máximo de destinatarios en un único mensaje?</ejemplo>
+		<respuesta>El número máximo es 150. Si necesita enviar asiduamente mensajes a más destinatarios debe usar una lista de distribución.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Cuál es el número máximo de correos electrónicos que puedo enviar al día?</ejemplo>
+		<respuesta>A través de las plataformas de Webmail  y desde el resto de formas de acceso al correo, el número máximo de correos electrónicos está limitado a 800 mensajes al día para cuentas del tipo @ugr.es (200 mensajes para @correo.ugr.es).</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿De cuanto espacio dispongo para mi cuenta de correo?</ejemplo>
+		<respuesta>Las cuentas del tipo @correo.ugr.es tienen espacio para correo: 500 MB.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Puedo consultar la cuota que estoy usando en el correo electrónico?</ejemplo>
+		<respuesta>Está disponible a su izquierda en el programa Webmail. Podrá ver que espacio de su cuenta está usado y los límites de cuota que posee.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Cómo puedo recuperar espacio libre en el correo electrónico una vez sobrepasada la cuota permitida?</ejemplo>
+		<respuesta>Cuando se sobrepasa la cuota permitida el usuario recibirá un correo avisándole de que ha sobrepasado su cuota y que debe intentar borrar correos para que pueda volver a tener espacio libre para que su cuenta de correo electrónico funcione correctamente para recibir y enviar correos.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Cual es el tamaño máximo de los archivos adjuntos a enviar con un correo?</ejemplo>
+		<respuesta>Para el PAS/PDI de la Universidad, desde Webmail es posible enviar en un correo archivos adjuntos de hasta 10MB de tamaño.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Para que sirve la carpeta BUZONdeEntradaUGR?</ejemplo>
+		<respuesta>Con objeto de mejorar el rendimiento de su correo electrónico, existe una funcionalidad en las estafetas centrales de correo UGR por la cual los correos electrónicos con una antigüedad superior a 30 días.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Puedo avisar automáticamente que estoy de vacaciones a mis contactos cuando me manden un correo?</ejemplo>
+		<respuesta>Sí, a través de la configuración de webmail, podemos activar una notificación a nuestros contactos.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Que es webmail?</ejemplo>
+		<respuesta>Se trata de una herramienta para consultar correo electrónico mediante un navegador de Internet.</respuesta>
+	</intent>
+
+</ficheroFAQ>

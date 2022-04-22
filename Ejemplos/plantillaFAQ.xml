@@ -1,0 +1,13 @@
+<ficheroFAQ>
+
+	<intent>
+		<ejemplo>ejemplo</ejemplo>
+		<respuesta>respuesta</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>ejemplo</ejemplo>
+		<respuesta>respuestinha</respuesta>
+	</intent>
+	
+</ficheroFAQ>

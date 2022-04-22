@@ -1,0 +1,22 @@
+<ficheroSEQ>
+
+	<entidad>
+		<nombre>entidad1</nombre>
+		<tipo>tipo1</tipo>		
+	</entidad>
+	<entidad>
+		<nombre>entidad2</nombre>
+		<tipo>tipo2</tipo>		
+	</entidad>
+
+	<intent>
+		<ejemplo>esto es un [ejemplo1](entidad1)</ejemplo>
+		<ejemplo>un [ejemplo1](entidad1) es esto</ejemplo>			
+	</intent>
+	
+	<intent>
+		<ejemplo>esto es un [ejemplo2](entidad2)</ejemplo>
+		<ejemplo>un [ejemplo2](entidad2) es esto</ejemplo>			
+	</intent>
+	
+</ficheroSEQ>
