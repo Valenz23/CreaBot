@@ -58,7 +58,7 @@ layout = [
     ]
 ]
 
-window = sg.Window("Creador de Asistentes con RASA", layout, size=(1400, 800), icon="../pathetic.ico")
+window = sg.Window("Creador de Asistentes con RASA", layout, size=(1400, 800))
 
 ###########################################################
 ###     FUNCIONAMIENTO      DE      LOS      BOTONES    ###
@@ -76,24 +76,24 @@ while True:
     if event == "EXIT" or event == sg.WIN_CLOSED:               # boton salir
         break
 
-    if event == "-FILE-":                                       # primer input
+    if event == "-FILE-":                                       # primer input, archivo xml
         fichero = values["-FILE-"]       
-        n = os.path.basename(fichero)               
-        nombrebot = n.replace(".xml", "")             
+        n = os.path.basename(fichero)                           # se obtiene el nombre del archivo
+        nombrebot = n.replace(".xml", "")                       # se quita la terminacion ".xml"
         window["-NAME-"].update(nombrebot)                      # se actualiza el input del nombre del asistente con esta sugerencia
 
-    if event == "-SHOW-":                              # boton para mostrar el archivo xml a la derecha
+    if event == "-SHOW-":                                       # boton para mostrar el contenido del archivo xml a la derecha
         try:            
-            ff = open(fichero,"r", encoding="utf8")           
+            ff = open(fichero,"r", encoding="utf8")             # se abre el archivo
 
             lines = ""
-            for f in ff:
+            for f in ff:                                        # se guardan las lineas
                 lines += f
 
-            window["-CONTENT-"].update(lines)   
+            window["-CONTENT-"].update(lines)                   # y se muestran
             
         except:
-            sg.PopupOK("Debes seleccionar un archivo para mostrarlo", title="Aviso", icon="../pathetic.ico")
+            sg.PopupOK("Debes seleccionar un archivo para mostrarlo", title="Aviso")
 
     if event == "-ALG-":                                        # combobox donde seleccionas el algoritmo
         algoritmo = values["-ALG-"]
@@ -108,47 +108,46 @@ while True:
     if event == "-FOLDER-":                                     # carpeta de destino
         location = values["-FOLDER-"]
 
-    if event == "-MOD-":    
+    if event == "-MOD-":                                        # boton para modificar el archivo xml mostrado
         output = values["-CONTENT-"]     
-        if fichero != "" and output != "":                                    # si modificamos el XML --> se va a sobrescribir
-            click = sg.PopupOKCancel("Va a sobrescribir el archivo {}\n\n¿Esta seguro?".format(fichero), title="Aviso", icon="../pathetic.ico")
+        if fichero != "" and output != "":                      # si modificamos el XML --> se va a sobrescribir
+            click = sg.PopupOKCancel("Va a sobrescribir el archivo {}\n\n¿Esta seguro?".format(fichero), title="Aviso")
             if click == "OK":
-                try:                
-                        
+                try:                                        
                     contenido = open(fichero, "w", encoding="utf-8") 
                     for linea in output:
                         contenido.write(linea)
                     contenido.close()
                 except:
-                    sg.PopupOK("Ocurrio un error", title="Aviso", icon="../pathetic.ico")
+                    sg.PopupOK("Ocurrio un error", title="Aviso")
         else:
-            sg.PopupOK("No hay nada que editar", title="Aviso", icon="../pathetic.ico")
+            sg.PopupOK("No hay nada que editar", title="Aviso")
 
-    if event == "-TIPO-":
+    if event == "-TIPO-":                                       # tipo de asistente (preguntas frecuentes o pasos secuencia)
         tipo = values["-TIPO-"]
 
     if event == "-OK-":                                         # crear el asistente
         try:
             if fichero == "":
-                sg.PopupOK("Falta el fichero XML", title="Aviso", icon="../pathetic.ico")
+                sg.PopupOK("Falta el fichero XML", title="Aviso")
             elif algoritmo == "":
-                sg.PopupOK("Falta el algoritmo", title="Aviso", icon="../pathetic.ico")
+                sg.PopupOK("Falta el algoritmo", title="Aviso")
             elif nombrebot == "":
-                sg.PopupOK("Falta el nombre del asistente", title="Aviso", icon="../pathetic.ico")
+                sg.PopupOK("Falta el nombre del asistente", title="Aviso")
             elif location == "":
-                sg.PopupOK("Falta el destino del asistente", title="Aviso", icon="../pathetic.ico")
+                sg.PopupOK("Falta el destino del asistente", title="Aviso")
             else:                
-                click = sg.PopupOKCancel("Se creará el asistente {}\nEn la carpeta {}\n\nPor favor dirijase a la consola".format(nombrebot, location), title="Aviso", icon="../pathetic.ico")
+                click = sg.PopupOKCancel("Se creará el asistente {}\nEn la carpeta {}\n\nPor favor dirijase a la consola".format(nombrebot, location), title="Aviso")
                 #crear bot aqui
-                if click == "OK":
-                    if tipo == "Preguntas Frecuentes":
+                if click == "OK":                           # segun el tipo de asistente
+                    if tipo == "Preguntas Frecuentes":      # se llama a un lector u otro
                         os.system("python lectorFAQ_builder.py {} {} {} {}".format(fichero,algoritmo, nombrebot, location))
                         print("")
                     if tipo == "Secuencia de Pasos":
                         os.system("python lectorSEQ_builder.py {} {} {} {}".format(fichero,algoritmo, nombrebot, location))
                         print("")
 
-                    sg.PopupOK("Asistente creado", title="Aviso", icon="../pathetic.ico")       
+                    sg.PopupOK("Asistente creado", title="Aviso")       
                                             
         except:
-            sg.PopupOK("Se produjo un error", title="Aviso", icon="../pathetic.ico")
+            sg.PopupOK("Se produjo un error", title="Aviso")

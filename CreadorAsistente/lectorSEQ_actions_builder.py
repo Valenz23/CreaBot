@@ -1,14 +1,15 @@
 
 import sys
 
-opcion = sys.argv[1]
-carpeta = sys.argv[2]
-nombre = sys.argv[3]
+opcion = sys.argv[1]        # algoritmo
+carpeta = sys.argv[2]       # ruta del asistente
+nombre = sys.argv[3]        # nombre del asistente
 
-destino = carpeta+"/"+nombre
+destino = carpeta+"/"+nombre    # ruta completa
 
 destino = destino.replace("/","\\")
 
+# se añaden estas lineas
 with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as actions:
     actions.write("\n")
     actions.write("class miClase:\n")
@@ -37,6 +38,7 @@ with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as
     actions.write("                comparacion = contenido[d][6:]                                      # quito el principio para comparar\n")
     actions.write("\n")
 
+    # segun el algoritmo ...
     if opcion == "Jaro-Winkler":
         actions.write("                ratio = otra.score_JW(ejemplo, comparacion)                 # esta funcion saca un porcentaje de lo que se parecen dos strings\n")
     if opcion == "LCS":

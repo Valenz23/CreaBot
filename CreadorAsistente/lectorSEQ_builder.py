@@ -4,26 +4,21 @@ import os
 from distutils.dir_util import copy_tree
 import numpy as np
 
-fichero = sys.argv[1]
-algoritmo = sys.argv[2]
-nombrebot = sys.argv[3]
-location = sys.argv[4]
+fichero = sys.argv[1]           # fichero xml
+algoritmo = sys.argv[2]         # algoritmo a usar
+nombre = sys.argv[3]            # nombre del asistente
+location = sys.argv[4]          # ruta destino del asistente
 
-# variables
-# variables
-ficheroSEQ = fichero    # fichero del que se extrae
-apache = location           
+carpeta = nombre                    # nombre de la carpeta                  
+destino = location+"/"+carpeta      # ruta completa del asistente
 
-carpeta = nombrebot                                   # carpeta donde se alojará el asistente
-destino = apache+"/"+carpeta
-
-ficheroSEQ = ficheroSEQ.replace("/","\\")
+fichero = fichero.replace("/","\\")     
 destino = destino.replace("/","\\")
 
-file = minidom.parse(ficheroSEQ)   # se parsea el fichero XML                   #NUEVO
+file = minidom.parse(fichero)   # se parsea el fichero XML                   
 
-intents = file.getElementsByTagName('intent')       # se extraen los tags 'intent' #NUEVO
-entidades = file.getElementsByTagName('entidad')    # extraigo las entidades        #NUEVO
+intents = file.getElementsByTagName('intent')       # se extraen los tags 'intent' 
+entidades = file.getElementsByTagName('entidad')    # y los tags 'entidad'        
 
 os.system("mkdir {}".format(destino))                   # creo la carpeta
 os.system("cd {} && rasa init".format(destino))         # y el asistente
@@ -60,8 +55,8 @@ rules.write('rules:\n')                                     # a rules.yml
 for i in range(intents.length):
     domain.write('  - intent{}\n'.format(i+1))              # a domain.yml
 
-domain.write('  - afirmar\n')       #
-domain.write('  - negar\n')         #
+domain.write('  - afirmar\n')                               # intent que activa el form
+domain.write('  - negar\n')                                 
 
 array_entidades = []    # aqui guardo las entidades
 array_tipos = []        # y aqui los tipos de esas entidades
@@ -99,8 +94,6 @@ for i in range(len(array_entidades)):
 
 domain.write('responses:\n')                                # a domain.yml
 
-########### NUEVO ###############
-
 # los ask -> que preguntan por el valor de cada slot
 for i in range(len(array_entidades)):
     domain.write('  utter_ask_{}:\n'.format(array_entidades[i]))
@@ -118,7 +111,6 @@ for i in range(len(array_entidades)):
 domain.write('"\n')
 
 
-
 ##############################
 
 k = 1      # contador 
@@ -128,7 +120,7 @@ for item in intents:
     ejemplos = item.getElementsByTagName('ejemplo')                         # se extraen los ejemplos
     #respuestas = item.getElementsByTagName('respuesta')                     # y las respuestas    
     
-    nlu.write('- intent: intent{}\n'.format(k))                           # a nlu.yml
+    nlu.write('- intent: intent{}\n'.format(k))                             # a nlu.yml
     nlu.write('  examples: |\n')                                            # a nlu.yml
 
     # para cada ejemplo
@@ -139,8 +131,6 @@ for item in intents:
 
 ###################################
 
-
-
 domain.write('  utter_goodbye:\n')
 domain.write('  - text: Hasta luego\n')
 
@@ -149,9 +139,7 @@ stories.write('  steps:\n')
 stories.write('  - intent: negar\n')
 stories.write('  - action: utter_goodbye\n')
 
-#NUEVOOOO
-
-nlu.write('- intent: afirmar\n')        # intent necesario para activar el form
+nlu.write('- intent: afirmar\n')                # intent necesario para activar el form
 nlu.write('  examples: |\n')
 nlu.write('    - Si\n')
 nlu.write('    - S\n')
@@ -169,7 +157,8 @@ nlu.write('    - Nunca\n')
 nlu.write('    - Para nada\n')
 nlu.write('    - No quiero\n')
 
-rules.write('- rule: Activate Data Form\n')   #archivo rules
+# archivo rules, donde se activa y desactiva el form
+rules.write('- rule: Activate Data Form\n')     
 rules.write('  steps:\n')
 rules.write('  - intent: afirmar\n')
 rules.write('  - action: data_form\n')
@@ -186,7 +175,7 @@ rules.write('    - action: utter_submit\n')
 rules.write('    - action: utter_slots_values\n')
 
 domain.write('actions:\n')                      # una ultima linea en domain con la accion 
-domain.write('  - validate_data_form\n')        #NUEVO
+domain.write('  - validate_data_form\n')        #
 
 nlu.close()
 domain.close()
@@ -198,12 +187,8 @@ src_dir = '.\\copiar\\'
 dest_dir = '{}\\'.format(destino)
 copy_tree(src_dir, dest_dir)
 
-########################################
-############# ACTIOOOOONS ##############
-########################################
-
-# contructor de actions #NUEVOOOO
-os.system("python lectorSEQ_actions_builder.py {} {} {}".format(algoritmo, location, nombrebot))
+# contructor de actions 
+os.system("python lectorSEQ_actions_builder.py {} {} {}".format(algoritmo, location, carpeta))
 
 with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as actions:
 

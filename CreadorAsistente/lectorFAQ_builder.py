@@ -2,26 +2,19 @@ import sys
 from xml.dom import minidom
 import os
 from distutils.dir_util import copy_tree
-import PySimpleGUI as sg
 
-sg.theme('DarkAmber')
+fichero = sys.argv[1]           # fichero xml
+algoritmo = sys.argv[2]         # algoritmo a usar
+nombre = sys.argv[3]            # nombre del asistente
+location = sys.argv[4]          # ruta destino del asistente
 
-fichero = sys.argv[1]
-algoritmo = sys.argv[2]
-nombre = sys.argv[3]
-location = sys.argv[4]
+carpeta = nombre                    # nombre de la carpeta                  
+destino = location+"/"+carpeta      # ruta completa del asistente
 
-# variables
-ejemplosFAQ = fichero    # fichero del que se extrae
-apache = location           
-
-carpeta = nombre                                   # carpeta donde se alojará el asistente
-destino = apache+"/"+carpeta
-
-ejemplosFAQ = ejemplosFAQ.replace("/","\\")
+fichero = fichero.replace("/","\\")     
 destino = destino.replace("/","\\")
 
-file = minidom.parse(ejemplosFAQ)   # se parsea el fichero XML
+file = minidom.parse(fichero)   # se parsea el fichero XML
 
 preguntas = file.getElementsByTagName('intent')       # se extraen los tags 'pregunta'
 
