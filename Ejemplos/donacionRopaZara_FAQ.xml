@@ -1,0 +1,55 @@
+<ficheroFAQ>
+
+	<intent>
+		<ejemplo>¿Cómo tengo que empaquetar mi donación?</ejemplo>
+		<ejemplo>¿Cómo empaqueto mi donación?</ejemplo>
+		<ejemplo>¿Cómo entrego la ropa que quiero donar?</ejemplo>
+		<ejemplo>¿Cómo entrego las prendas que voy a donar?</ejemplo>
+		<respuesta>Las prendas que quieras donar deben guardarse dentro de un paquete bien cerrado.</respuesta>
+		<respuesta>Las prendas deben entregarse en un paquete bien cerrado.</respuesta>
+	</intent>
+
+	<intent>
+		<ejemplo>¿Las prendas tienen que ser de Zara?</ejemplo>
+		<ejemplo>¿Tiene que ser ropa de Zara?</ejemplo>
+		<ejemplo>¿La ropa puede ser de otra marca?</ejemplo>
+		<respuesta>Puedes depositar cualquier tipo de prenda o textil que quieras reciclar.</respuesta>
+		<respuesta>No es necesario que sea de nuestra marca.</respuesta>
+	</intent>
+	
+	<intent>
+		<ejemplo>¿Puedo depositar prendas que no estén en perfecto estado?</ejemplo>
+		<ejemplo>¿Puedo donar prendas que no estén en perfecto estado?</ejemplo>
+		<ejemplo>¿La ropa puede estar en mal estado?</ejemplo>
+		<respuesta>Sí. Las prendas recogidas se clasifican antes de ser reutilizadas o recicladas.</respuesta>
+		<respuesta>No hace falta que esten en perfecto estado. Las prendas recogidas se clasifican antes de ser reutilizadas o recicladas.</respuesta>
+	</intent>
+	
+	<intent>
+		<ejemplo>¿Qué pasa con las prendas una vez que las entrego?</ejemplo>
+		<ejemplo>¿Qué pasa con la ropa que dono?</ejemplo>
+		<ejemplo>¿Qué pasa con la ropa que estoy entregando?</ejemplo>
+		<respuesta>En Zara nos encargamos de recoger y transportar las prendas a los centros de clasificación de las organizaciones con las que colaboramos, donde se clasifican para darle el mejor destino a cada una de ellas.</respuesta>
+		<respuesta>Nosotros nos encargamos de recoger y transportar las prendas a los centros de clasificación de las organizaciones con las que colaboramos, donde se clasifican para darle el mejor destino a cada una de ellas.</respuesta>
+	</intent>
+	
+	<intent>
+		<ejemplo>¿Cómo se controla el destino de las prendas donadas?</ejemplo>
+		<ejemplo>¿Donde va la ropa que entrego?</ejemplo>
+		<ejemplo>¿Donde va la ropa que dono?</ejemplo>
+		<respuesta>Las organizaciones sin ánimo de lucro cuentan con procesos de verificación propios para garantizar el destino ético de estas prendas.</respuesta>
+	</intent>
+	
+	<intent>
+		<ejemplo>¿Obtiene Zara algún beneficio económico de esta iniciativa?</ejemplo>
+		<ejemplo>¿Sacais beneficio de las donaciones?</ejemplo>
+		<respuesta>No. Este proyecto forma parte de nuestro modelo de inversión en programas medioambientales y sociales.</respuesta>
+		<respuesta>No. Toda la ropa recogida tiene como objetivo el desarrollo de los proyectos sociales de las organizaciones sin ánimo de lucro con las que colaboramos. </respuesta>		
+	</intent>
+	
+	<intent>
+		<ejemplo>¿Los clientes reciben algo a cambio de las prendas?</ejemplo>		
+		<respuesta>No. La finalidad de esta iniciativa es la ayuda social directa o la financiación de los proyectos sociales desarrollados y gestionados por las organizaciones sin ánimo de lucro con las que colaboramos.</respuesta>			
+	</intent>
+	
+</ficheroFAQ>

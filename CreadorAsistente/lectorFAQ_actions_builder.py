@@ -4,6 +4,9 @@ import sys
 opcion = sys.argv[1]        # algoritmo
 carpeta = sys.argv[2]       # ruta del asistente
 nombre = sys.argv[3]        # nombre del asistente
+minlim = sys.argv[4]           # limite inferior
+maxlim = sys.argv[5]           # limite superior
+examples = sys.argv[6]      # numero maximos de ejemplos
 
 destino = carpeta+"/"+nombre    # ruta completa
 
@@ -26,9 +29,9 @@ with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as
     actions.write("        intent = tracker.latest_message['intent'].get('name')       # obtenemos el intent\n")
     actions.write("        ejemplo = tracker.latest_message.get('text')                # y el nuevo ejemplo\n")
     actions.write("\n")
-    actions.write("        limiteMIN = 0.5             # porcentaje minimo que debe de parecerse el ejemplo a los existentes\n")
-    actions.write("        limiteMAX = 0.7             # porcentaje maximo\n")
-    actions.write("        maxEjem = 10                # numero maximo de ejemplos que puede contener un intent\n")
+    actions.write("        limiteMIN = {}             # porcentaje minimo que debe de parecerse el ejemplo a los existentes\n".format(minlim))
+    actions.write("        limiteMAX = {}             # porcentaje maximo\n".format(maxlim))
+    actions.write("        maxEjem = {}                # numero maximo de ejemplos que puede contener un intent\n".format(examples))
     actions.write("        parecido = False            # boolean que se activa si se supera la variable 'limite\n")
     actions.write("        incluido = False            # boolean que se activa cuando añadimos ejemplo\n")
     actions.write("\n")

@@ -25,6 +25,12 @@ primera_columna = [
     [sg.T()],
     [sg.Text("Selecciona un método para añadir ejemplos")],
     [sg.Combo(size=(25,1), values=["Jaro-Winkler", "LCS", "Coseno", "BM25"], default_value="Jaro-Winkler",readonly=True, key="-ALG-", enable_events=True), sg.Text("Recomendado", key="-RECO-")],
+    [sg.Text("Límite mínimo")],
+    [sg.Combo(size=(25,1), values=["0.1", "0.2", "0.3", "0.4", "0.5"], default_value="0.5",readonly=True, key="-MINLIM-", enable_events=True), sg.Text("%")],
+    [sg.Text("Límite máximo")],
+    [sg.Combo(size=(25,1), values=["0.6", "0.7", "0.8", "0.9"], default_value="0.7",readonly=True, key="-MAXLIM-", enable_events=True), sg.Text("%")],
+    [sg.Text("Número máximo de ejemplos")],
+    [sg.Combo(size=(25,1), values=["10", "20", "30", "40", "50","60", "70", "80", "90", "100"], default_value="20",readonly=True, key="-EXAMPLES-", enable_events=True)],
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
@@ -35,9 +41,7 @@ primera_columna = [
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
-    [sg.T()],
     [sg.Submit(size=(40,5),button_text="Crear asistente", key="-OK-")],
-    [sg.T()],
     [sg.T()],
     [sg.HSeparator()]
 ]
@@ -58,7 +62,7 @@ layout = [
     ]
 ]
 
-window = sg.Window("Creador de Asistentes con RASA", layout, size=(1400, 800))
+window = sg.Window("Creador de Asistentes con RASA", layout, size=(1400, 900))
 
 ###########################################################
 ###     FUNCIONAMIENTO      DE      LOS      BOTONES    ###
@@ -69,6 +73,9 @@ algoritmo = "Jaro-Winkler"
 nombrebot = ""
 location = ""
 tipo = "Preguntas Frecuentes"
+minlim = 0.5
+maxlim = 0.7
+examples = 20
 
 while True:
     event, values = window.read()
@@ -126,6 +133,15 @@ while True:
     if event == "-TIPO-":                                       # tipo de asistente (preguntas frecuentes o pasos secuencia)
         tipo = values["-TIPO-"]
 
+    if event == "-MINLIM-":                                      # limite inferior
+        minlim = values["-MINLIM-"]
+
+    if event == "-MAXLIM-":                                      # limite superior
+        maxlim = values["-MAXLIM-"]
+
+    if event == "-EXAMPLES-":                                   # numero maximo de ejemplos
+        examples = values["-EXAMPLES-"]
+
     if event == "-OK-":                                         # crear el asistente
         try:
             if fichero == "":
@@ -140,11 +156,12 @@ while True:
                 click = sg.PopupOKCancel("Se creará el asistente {}\nEn la carpeta {}\n\nPor favor dirijase a la consola".format(nombrebot, location), title="Aviso")
                 #crear bot aqui
                 if click == "OK":                           # segun el tipo de asistente
-                    if tipo == "Preguntas Frecuentes":      # se llama a un lector u otro
-                        os.system("python lectorFAQ_builder.py {} {} {} {}".format(fichero,algoritmo, nombrebot, location))
+                    #print(tipo)
+                    if tipo == "Preguntas Frecuentes":      # se llama a un lector u otro                        
+                        os.system("python lectorFAQ_builder.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))
                         print("")
                     if tipo == "Secuencia de Pasos":
-                        os.system("python lectorSEQ_builder.py {} {} {} {}".format(fichero,algoritmo, nombrebot, location))
+                        os.system("python lectorSEQ_builder.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))
                         print("")
 
                     sg.PopupOK("Asistente creado", title="Aviso")       

@@ -8,6 +8,9 @@ fichero = sys.argv[1]           # fichero xml
 algoritmo = sys.argv[2]         # algoritmo a usar
 nombre = sys.argv[3]            # nombre del asistente
 location = sys.argv[4]          # ruta destino del asistente
+minlim = sys.argv[5]               # limite inferior
+maxlim = sys.argv[6]               # limite superior
+examples = sys.argv[7]          # numero maximos de ejemplos
 
 carpeta = nombre                    # nombre de la carpeta                  
 destino = location+"/"+carpeta      # ruta completa del asistente
@@ -188,7 +191,7 @@ dest_dir = '{}\\'.format(destino)
 copy_tree(src_dir, dest_dir)
 
 # contructor de actions 
-os.system("python lectorSEQ_actions_builder.py {} {} {}".format(algoritmo, location, carpeta))
+os.system("python lectorSEQ_actions_builder.py {} {} {} {} {} {}".format(algoritmo, location, carpeta, minlim, maxlim, examples))
 
 with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as actions:
 
@@ -207,8 +210,7 @@ with open ("{}\\actions\\actions.py".format(destino), "a+", encoding="utf-8") as
 
 # se entrena el modelo
 os.system("cd {} && rasa train".format(destino)) 
-# prueba
-#os.system("cd {} && rasa shell".format(carpeta))     
+
 print("\n")
 print("****************************************")
 print("*******   Procesos completados   *******")

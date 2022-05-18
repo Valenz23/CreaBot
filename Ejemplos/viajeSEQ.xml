@@ -1,0 +1,68 @@
+<ficheroSEQ>
+
+	<entidad>
+		<nombre>nombre</nombre>
+		<tipo>text</tipo>		
+	</entidad>
+	<entidad>
+		<nombre>fecha</nombre>
+		<tipo>text</tipo>		
+	</entidad>
+	<entidad>
+		<nombre>ubicacion</nombre>
+		<tipo>text</tipo>		
+	</entidad>
+	<entidad>
+		<nombre>destino</nombre>
+		<tipo>text</tipo>		
+	</entidad>
+
+	<intent>
+		<ejemplo>Mi nombre es [Pablo](nombre)</ejemplo>
+		<ejemplo>Mi nombre es [Ana](nombre)</ejemplo>
+		<ejemplo>Me llamo [Juan](nombre)</ejemplo>
+		<ejemplo>Me llamo [Irene](nombre)</ejemplo>
+		<ejemplo>Soy [Alberto](nombre)</ejemplo>
+		<ejemplo>Soy [Elena](nombre)</ejemplo>
+		<ejemplo>[Manuel](nombre)</ejemplo>
+		<ejemplo>[Laura](nombre)</ejemplo>
+	</intent>
+	
+	<intent>
+		<ejemplo>Para el [12 de enero](fecha)</ejemplo>
+		<ejemplo>Para el [4 de febrero](fecha)</ejemplo>
+		<ejemplo>[6 de marzo](fecha)</ejemplo>
+		<ejemplo>[1 de abril](fecha)</ejemplo>
+		<ejemplo>Quiero ir el [2 de mayo](fecha)</ejemplo>
+		<ejemplo>Me quiero ir el [15 de junio](fecha)</ejemplo>
+		<ejemplo>Quiero para el [22 de julio](fecha)</ejemplo>
+		<ejemplo>El [9 de agosto](fecha)</ejemplo>
+		<ejemplo>Para [30 de septiembre](fecha)</ejemplo>
+		<ejemplo>La fecha es el [21 de octubre](fecha)</ejemplo>
+		<ejemplo>Para fecha de [16 de noviembre](fecha)</ejemplo>
+		<ejemplo>Fecha [25 de diciembre](fecha)</ejemplo>
+	</intent>
+	
+	<intent>
+		<ejemplo>Mi ubicacion es [Granada](ubicacion)</ejemplo>
+		<ejemplo>La ubicacion es [Almeria](ubicacion)</ejemplo>
+		<ejemplo>[Malaga](ubicacion)</ejemplo>
+		<ejemplo>[Huesca](ubicacion)</ejemplo>
+		<ejemplo>Es [Barcelona](ubicacion)</ejemplo>
+		<ejemplo>Es [Coroba](ubicacion)</ejemplo>
+		<ejemplo>Voy desde [Madrid](ubicacion)</ejemplo>	
+		<ejemplo>Desde [Alicante](ubicacion)</ejemplo>	
+	</intent>
+	
+	<intent>
+		<ejemplo>Mi destino es [Zamora](destino)</ejemplo>
+		<ejemplo>El destino es [Huesca](destino)</ejemplo>
+		<ejemplo>[Palencia](destino)</ejemplo>
+		<ejemplo>[Caceres](destino)</ejemplo>
+		<ejemplo>Es [Badajoz](destino)</ejemplo>
+		<ejemplo>Es [Mallorca](destino)</ejemplo>
+		<ejemplo>Voy hasta [Guadalajara](destino)</ejemplo>	
+		<ejemplo>Hasta [Teruel](destino)</ejemplo>	
+	</intent>
+	
+</ficheroSEQ>
