@@ -31,8 +31,6 @@ domain = open("{}\\domain.yml".format(destino), "w", encoding="utf-8")          
 stories = open("{}\\data\\stories.yml".format(destino), "w", encoding="utf-8")   # fichero stories
 rules = open("{}\\data\\rules.yml".format(destino), "w", encoding="utf-8")       # fichero rules
 
-
-
 #######################################################################
 #### empezamos a crear los documentos necesarios para el asistente ####
 #######################################################################

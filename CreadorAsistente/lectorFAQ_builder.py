@@ -24,13 +24,10 @@ preguntas = file.getElementsByTagName('intent')       # se extraen los tags 'pre
 os.system("mkdir {}".format(destino))                   # creo la carpeta
 os.system("cd {} && rasa init".format(destino))         # y el asistente
 
-
 nlu = open("{}\\data\\nlu.yml".format(destino), "w", encoding="utf-8")           # fichero nlu
 domain = open("{}\\domain.yml".format(destino), "w", encoding="utf-8")           # fichero domain
 stories = open("{}\\data\\stories.yml".format(destino), "w", encoding="utf-8")   # fichero stories
 rules = open("{}\\data\\rules.yml".format(destino), "w", encoding="utf-8")       # fichero rules
-
-
 
 #######################################################################
 #### empezamos a crear los documentos necesarios para el asistente ####

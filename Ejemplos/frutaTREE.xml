@@ -1,0 +1,262 @@
+<ficheroTREE>
+
+	<!-- INSTENTS -->
+
+	<intent>
+		<nombre>saludo</nombre>
+		<ejemplo>hola</ejemplo>	
+		<ejemplo>buenas</ejemplo>			
+	</intent>
+	
+	<intent>
+		<nombre>color_verde</nombre>
+		<ejemplo>es de color verde</ejemplo>	
+		<ejemplo>verde</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>color_amarillo</nombre>
+		<ejemplo>es de color amarillo</ejemplo>	
+		<ejemplo>amarillo</ejemplo>	
+		<ejemplo>amarilla</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>color_rojo</nombre>
+		<ejemplo>es de color rojo</ejemplo>	
+		<ejemplo>rojo</ejemplo>	
+		<ejemplo>roja</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>tamano_grande</nombre>
+		<ejemplo>grande</ejemplo>	
+		<ejemplo>su tamaño es grande</ejemplo>	
+		<ejemplo>es de gran tamaño</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>tamano_medio</nombre>
+		<ejemplo>medio</ejemplo>	
+		<ejemplo>mediano</ejemplo>	
+		<ejemplo>su tamaño es medio</ejemplo>	
+		<ejemplo>es mediano</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>tamano_pequeno</nombre>
+		<ejemplo>pequeño</ejemplo>			
+		<ejemplo>su tamaño es pequeño</ejemplo>	
+		<ejemplo>es pequeña</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>forma_redonda</nombre>
+		<ejemplo>es redondo</ejemplo>			
+		<ejemplo>redondeada</ejemplo>			
+		<ejemplo>su forma es redondeada</ejemplo>	
+		<ejemplo>de forma redonda</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>forma_alargada</nombre>
+		<ejemplo>es alargado</ejemplo>			
+		<ejemplo>largo</ejemplo>			
+		<ejemplo>su forma es larga</ejemplo>	
+		<ejemplo>de forma alargada</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>sabor_dulce</nombre>
+		<ejemplo>es dulce</ejemplo>			
+		<ejemplo>dulce</ejemplo>			
+		<ejemplo>su sabor es dulce</ejemplo>	
+		<ejemplo>sabe dulce</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>sabor_amargo</nombre>
+		<ejemplo>es amargo</ejemplo>			
+		<ejemplo>amargo</ejemplo>			
+		<ejemplo>su sabor es amargo</ejemplo>	
+		<ejemplo>sabe amargo</ejemplo>	
+	</intent>
+	
+	<!-- RESPONSES -->
+	
+	<response>
+		<nombre>utter_saludo</nombre>
+		<respuesta>¡Hola!</respuesta>
+		<respuesta>¡Hey!</respuesta>
+		<respuesta>¡Muy Buenas!</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_preguntar_color</nombre>
+		<respuesta>¿De que ccolor es tu fruta?</respuesta>
+		<respuesta>¿Cual es el color de tu fruta?</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_preguntar_tamano</nombre>
+		<respuesta>¿Que tamaño tiene?</respuesta>
+		<respuesta>¿Me puedes decir su tamaño?</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_preguntar_forma</nombre>
+		<respuesta>¿Que forma tiene?</respuesta>
+		<respuesta>¿Me puedes decir su forma?</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_preguntar_sabor</nombre>
+		<respuesta>¿Que sabor tiene?</respuesta>
+		<respuesta>¿Me puedes decir su sabor?</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_sandia</nombre>
+		<respuesta>Es una sandía</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_manzana</nombre>
+		<respuesta>Es una manzana</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_uva</nombre>
+		<respuesta>Son uvas</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_pomelo</nombre>
+		<respuesta>Es un pomelo</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_limon</nombre>
+		<respuesta>Es un limón</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_platano</nombre>
+		<respuesta>Es un plátano</respuesta>
+	</response>	
+	
+	<response>
+		<nombre>utter_es_cereza</nombre>
+		<respuesta>Son cerezas</respuesta>
+	</response>	
+	
+	<!-- STORIES -->
+	
+	<story>
+		<nombre>historia sandia</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_verde</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_grande</user>
+		<bot>utter_es_sandia</bot>
+	</story>	
+	
+	<story>
+		<nombre>historia manzana verde</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_verde</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_medio</user>
+		<bot>utter_es_manzana</bot>
+	</story>	
+	
+	<story>
+		<nombre>historia uva verde</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_verde</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_pequeno</user>
+		<bot>utter_es_uva</bot>
+	</story>	
+	
+	<story>
+		<nombre>historia pomelo</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_amarillo</user>
+		<bot>utter_preguntar_forma</bot>
+		<user>forma_redonda</user>		
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_medio</user>
+		<bot>utter_es_pomelo</bot>
+	</story>	
+
+	<story>
+		<nombre>historia limon</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_amarillo</user>
+		<bot>utter_preguntar_forma</bot>
+		<user>forma_redonda</user>		
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_pequeno</user>
+		<bot>utter_es_limon</bot>
+	</story>
+	
+	<story>
+		<nombre>historia platano</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_amarillo</user>
+		<bot>utter_preguntar_forma</bot>
+		<user>forma_alargada</user>		
+		<bot>utter_es_platano</bot>
+	</story>
+	
+	<story>
+		<nombre>historia manzana roja</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_rojo</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_medio</user>
+		<bot>utter_es_manzana</bot>
+	</story>
+	
+	<story>
+		<nombre>historia cerezas</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_rojo</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_pequeno</user>
+		<bot>utter_preguntar_sabor</bot>
+		<user>sabor_dulce</user>
+		<bot>utter_es_cereza</bot>
+	</story>
+	
+	<story>
+		<nombre>historia uva roja</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_color</bot>
+		<user>color_rojo</user>
+		<bot>utter_preguntar_tamano</bot>
+		<user>tamano_pequeno</user>
+		<bot>utter_preguntar_sabor</bot>
+		<user>sabor_amargo</user>
+		<bot>utter_es_uva</bot>
+	</story>
+	
+</ficheroTREE>

@@ -1,0 +1,78 @@
+<ficheroTREE>
+
+	<!-- INSTENTS -->
+
+	<intent>
+		<nombre>saludo</nombre>
+		<ejemplo>hola</ejemplo>	
+		<ejemplo>buenas</ejemplo>			
+	</intent>
+	
+	<intent>
+		<nombre>estado_feliz</nombre>
+		<ejemplo>estoy feliz</ejemplo>	
+		<ejemplo>feliz</ejemplo>	
+		<ejemplo>contento</ejemplo>	
+		<ejemplo>alegre</ejemplo>	
+		<ejemplo>con una sonrisa</ejemplo>	
+	</intent>
+	
+	<intent>
+		<nombre>estado_triste</nombre>
+		<ejemplo>estoy triste</ejemplo>	
+		<ejemplo>triste</ejemplo>	
+		<ejemplo>enfadado</ejemplo>	
+		<ejemplo>llorando</ejemplo>	
+		<ejemplo>cabreado</ejemplo>	
+	</intent>
+	
+	<!-- RESPONSES -->
+	
+	<response>
+		<nombre>utter_saludo</nombre>
+		<respuesta>¡Hola!</respuesta>
+		<respuesta>¡Hey!</respuesta>
+		<respuesta>¡Muy Buenas!</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_preguntar_estado</nombre>
+		<respuesta>¿Como te sientes?</respuesta>
+		<respuesta>¿Me puedes decir como te sientes?</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_feliz</nombre>
+		<respuesta>¡Que bien!</respuesta>
+		<respuesta>¡Fenomenal!</respuesta>
+		<respuesta>¡Espléndido!</respuesta>
+	</response>
+	
+	<response>
+		<nombre>utter_triste</nombre>
+		<respuesta>¡Vaya :(!</respuesta>
+		<respuesta>¡Eso no esta bien!</respuesta>
+		<respuesta>¡Hay que arreglar eso!</respuesta>
+	</response>	
+		
+	<!-- STORIES -->
+		
+	<story>
+		<nombre>happy path</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_estado</bot>
+		<user>estado_feliz</user>
+		<bot>utter_feliz</bot>
+	</story>	
+	
+	<story>
+		<nombre>sad path</nombre>
+		<user>saludo</user>
+		<bot>utter_saludo</bot>
+		<bot>utter_preguntar_estado</bot>
+		<user>estado_triste</user>
+		<bot>utter_triste</bot>
+	</story>
+	
+</ficheroTREE>
