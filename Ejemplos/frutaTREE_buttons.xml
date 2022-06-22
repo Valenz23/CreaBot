@@ -95,24 +95,64 @@
 		<nombre>utter_preguntar_color</nombre>
 		<respuesta>¿De que ccolor es tu fruta?</respuesta>
 		<respuesta>¿Cual es el color de tu fruta?</respuesta>
+		<boton>
+			<title>Verde</title>
+			<payload>color_verde</payload>
+		</boton>
+		<boton>
+			<title>Amarilla</title>
+			<payload>color_amarillo</payload>
+		</boton>
+		<boton>
+			<title>Roja</title>
+			<payload>color_rojo</payload>
+		</boton>
 	</response>
 	
 	<response>
 		<nombre>utter_preguntar_tamano</nombre>
 		<respuesta>¿Que tamaño tiene?</respuesta>
 		<respuesta>¿Me puedes decir su tamaño?</respuesta>
+		<boton>
+			<title>Grande</title>
+			<payload>tamano_grande</payload>
+		</boton>
+		<boton>
+			<title>Medio</title>
+			<payload>tamano_medio</payload>
+		</boton>
+		<boton>
+			<title>Pequeño</title>
+			<payload>tamano_pequeno</payload>
+		</boton>
 	</response>
 	
 	<response>
 		<nombre>utter_preguntar_forma</nombre>
 		<respuesta>¿Que forma tiene?</respuesta>
 		<respuesta>¿Me puedes decir su forma?</respuesta>
+		<boton>
+			<title>Redonda</title>
+			<payload>forma_redonda</payload>
+		</boton>
+		<boton>
+			<title>Alargada</title>
+			<payload>forma_alargada</payload>
+		</boton>
 	</response>	
 	
 	<response>
 		<nombre>utter_preguntar_sabor</nombre>
 		<respuesta>¿Que sabor tiene?</respuesta>
 		<respuesta>¿Me puedes decir su sabor?</respuesta>
+		<boton>
+			<title>Dulce</title>
+			<payload>sabor_dulce</payload>
+		</boton>
+		<boton>
+			<title>Amargo</title>
+			<payload>sabor_amargo</payload>
+		</boton>
 	</response>	
 	
 	<response>

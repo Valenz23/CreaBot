@@ -13,7 +13,7 @@ primera_columna = [
     [sg.HSeparator()],
     [sg.T()],
     [sg.Text("Selecciona un tipo de asistente")], 
-    [sg.Combo(size=(25,1), values=["Árbol de decisión", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
+    [sg.Combo(size=(25,1), values=["Árbol de decisión", "Árbol de decisión con botones", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
@@ -165,6 +165,8 @@ while True:
                         print("")
                     if tipo == "Árbol de decisión":
                         os.system("python lectorTREE_builder.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))
+                    if tipo == "Árbol de decisión con botones":
+                        os.system("python lectorTREE_builder_buttons.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))
 
                     sg.PopupOK("Asistente creado", title="Aviso")       
                                             

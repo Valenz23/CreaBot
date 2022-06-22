@@ -89,11 +89,21 @@ for item in intentsDOM:
 domain.write('responses:\n')  
 for item in responses:
     nombre = item.getElementsByTagName('nombre')                    # extraigo el nombre
-    respuestas = item.getElementsByTagName('respuesta')             # y las respuestas    
+    respuestas = item.getElementsByTagName('respuesta')             # las respuestas  
+    boton = item.getElementsByTagName('boton')                         # y ahora los botones 
 
-    domain.write('  {}:\n'.format(nombre[0].firstChild.nodeValue))          # y se escribe
-    for r in respuestas:        
-        domain.write('  - text: "{}"\n'.format(r.firstChild.nodeValue))     
+    domain.write('  {}:\n'.format(nombre[0].firstChild.nodeValue))          # y se escribe el nombre
+
+    for r in respuestas:                                                    # las respuestas
+        domain.write('  - text: "{}"\n'.format(r.firstChild.nodeValue))             
+        
+        domain.write('    buttons:\n')                                         # y los botones en cada text de la repuesta
+        for b in boton:
+            title = b.getElementsByTagName('title')                             # el texto del boton
+            payload = b.getElementsByTagName('payload')                         # y a que intent apunta
+
+            domain.write('      - title: "{}"\n'.format(title[0].firstChild.nodeValue))
+            domain.write('        payload: "/{}"\n'.format(payload[0].firstChild.nodeValue))
 
 # ultima linea con la accion
 domain.write('actions:\n')                      
