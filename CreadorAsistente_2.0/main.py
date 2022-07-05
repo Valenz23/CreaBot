@@ -12,7 +12,8 @@ primera_columna = [
     [sg.HSeparator()],
     [sg.T()],
     [sg.Text("Selecciona un tipo de asistente")], 
-    [sg.Combo(size=(25,1), values=["Árbol de decisión", "Árbol de decisión con botones", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
+    #[sg.Combo(size=(25,1), values=["Árbol de decisión", "Árbol de decisión con botones", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
+    [sg.Combo(size=(25,1), values=["Árbol de decisión", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
@@ -71,7 +72,6 @@ algoritmo = "Jaro-Winkler"
 nombrebot = ""
 location = ""
 tipo = "Árbol de decisión"
-opti = 1
 minlim = 0.5
 maxlim = 0.7
 examples = 20
@@ -156,26 +156,13 @@ while True:
                 sg.PopupOK("Falta el destino del asistente", title="Aviso")
             else:                
                 click = sg.PopupOKCancel("Se creará el asistente {}\nEn la carpeta {}\n\nPor favor dirijase a la consola".format(nombrebot, location), title="Aviso")
-                #crear bot aqui
-                if click == "OK":                           # segun el tipo de asistente
-                    #print(tipo)
-                    #if tipo == "Preguntas Frecuentes":      # se llama a un lector u otro                        
-                    #    os.system("python extractor_TREE2.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))                        
-                    #    print("")
-                    """if tipo == "Secuencia de Pasos":
-                        os.system("python lectorSEQ_builder.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))
-                        print("")"""
-                    #if tipo == "Árbol de decisión":                        
-                    #    os.system("python extractor_TREE2.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))                        
-                    """if tipo == "Árbol de decisión con botones":
-                        os.system("python lectorTREE_builder_buttons.py {} {} {} {} {} {} {}".format(fichero,algoritmo, nombrebot, location, minlim, maxlim, examples))"""
+                #creacion del bot
+                if click == "OK": # segun el tipo de asistente   
+                    if tipo == "Preguntas Frecuentes" or tipo == "Árbol de decisión":  
+                        os.system("python bot_builder.py {} {} {} {} {} {} {}".format(fichero, algoritmo, nombrebot, location, minlim, maxlim, examples))   
+                    if tipo == "Secuencia de Pasos":
+                        os.system("python bot_builder2.py {} {} {} {} {} {} {}".format(fichero, algoritmo, nombrebot, location, minlim, maxlim, examples))     
                     
-                    if tipo == "Árbol de decisión": opti = 1                        
-                    if tipo == "Preguntas Frecuentes": opti = 2
-                    if tipo == "Secuencia de Pasos": opti = 3
-
-                    os.system("python bot_builder.py {} {} {} {} {} {} {} {}".format(fichero, algoritmo, nombrebot, location, minlim, maxlim, examples, opti))
-
                     sg.PopupOK("Asistente creado", title="Aviso")       
                                             
         except:

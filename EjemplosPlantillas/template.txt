@@ -6,13 +6,10 @@
 
 
 # entidades
-# solo son necesarias para los bots de asos en secuencia, usualmente van seguidos de formularios (forms) que los contienen
+# solo son necesarias para los bots de pasos en secuencia, can todos en el mismo formulario
 entities:entidad1;entidad2
 entity:entidad3
 
-
-# formulario 
-form:entidad1;entidad2;entidad3
 
 
 # intents con repuestas hechas por el bot '()' a ejemplos dados por el usuario '{}'

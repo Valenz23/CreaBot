@@ -4,8 +4,8 @@ import sys
 opcion = sys.argv[1]        # algoritmo
 carpeta = sys.argv[2]       # ruta del asistente
 nombre = sys.argv[3]        # nombre del asistente
-minlim = sys.argv[4]           # limite inferior
-maxlim = sys.argv[5]           # limite superior
+minlim = sys.argv[4]        # limite inferior
+maxlim = sys.argv[5]        # limite superior
 examples = sys.argv[6]      # numero maximos de ejemplos
 
 destino = carpeta+"/"+nombre    # ruta completa
