@@ -1,0 +1,28 @@
+
+intent:Pregunta1;(El número máximo es 150. Si necesita enviar asiduamente mensajes a más destinatarios debe usar una lista de distribución);{¿Cúal es el número máximo de destinatarios en un único mensaje?}
+
+intent:Pregunta2;(A través de las plataformas de Webmail  y desde el resto de formas de acceso al correo, el número máximo de correos electrónicos está limitado a 800 mensajes al día para cuentas del tipo @ugr.es (200 mensajes para @correo.ugr.es));{¿Cuál es el número máximo de correos electrónicos que puedo enviar al día?}
+
+intent:Pregunta3;(Las cuentas del tipo @correo.ugr.es tienen espacio para correo: 500 MB);{¿De cuanto espacio dispongo para mi cuenta de correo?}
+
+intent:Pregunta4;(Está disponible a su izquierda en el programa Webmail. Podrá ver que espacio de su cuenta está usado y los límites de cuota que posee);{¿Puedo consultar la cuota que estoy usando en el correo electrónico?}
+
+intent:Pregunta5;(Cuando se sobrepasa la cuota permitida el usuario recibirá un correo avisándole de que ha sobrepasado su cuota y que debe intentar borrar correos para que pueda volver a tener espacio libre para que su cuenta de correo electrónico funcione correctamente para recibir y enviar correos);{¿Cómo puedo recuperar espacio libre en el correo electrónico una vez sobrepasada la cuota permitida?}
+
+intent:Pregunta6;(Para el PAS/PDI de la Universidad, desde Webmail es posible enviar en un correo archivos adjuntos de hasta 10MB de tamaño);{¿Cual es el tamaño máximo de los archivos adjuntos a enviar con un correo?}
+
+intent:Pregunta7;(Con objeto de mejorar el rendimiento de su correo electrónico, existe una funcionalidad en las estafetas centrales de correo UGR por la cual los correos electrónicos con una antigüedad superior a 30 días.);{¿Para que sirve la carpeta BUZONdeEntradaUGR?}
+
+intent:Pregunta8;(Sí, a través de la configuración de webmail, podemos activar una notificación a nuestros contactos.);{¿Puedo avisar automáticamente que estoy de vacaciones a mis contactos cuando me manden un correo?}
+
+intent:Pregunta9;(Se trata de una herramienta para consultar correo electrónico mediante un navegador de Internet);{¿Que es webmail?}
+
+story:Pregunta1
+story:Pregunta2
+story:Pregunta3
+story:Pregunta4
+story:Pregunta5
+story:Pregunta6
+story:Pregunta7
+story:Pregunta8
+story:Pregunta9

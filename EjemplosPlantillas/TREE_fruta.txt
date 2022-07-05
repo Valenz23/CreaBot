@@ -1,0 +1,34 @@
+
+intent:Saludo;(¡Hola!|¡Saludos!);{Hola,Muy buenas|Buenas|Buenos dias|Buenas noches}
+intent:Color_Verde;{Es verde|Es de color verde|Su color es verde}
+intent:Color_Amarillo;{Es amarilla|Es de color amarillo|Su color es amarillo}
+intent:Color_Rojo;{Es roja|Es de color rojo|Su color es rojo}
+intent:Tamano_Grande;{Es grande|Es de gran tamaño|Su tamaño es grande}
+intent:Tamano_Medio;{Es medio|Es mediano|Es de tamaño medio|Su tamaño es mediano}
+intent:Tamano_Pequeno;{Es Pequeño|Es de pequeño tamaño|Su tamaño es pequeño}
+intent:Forma_Redonda;{Es redondo|Redondeado|Su forma es redonda|Forma redondeada}
+intent:Forma_Alargada;{Es largo|alargado|Su forma es larga|Forma alargada}
+intent:Sabor_Dulce;{Sabe dulce|Tiene un sabor dulce|Es dulce}
+intent:Sabor_Amargo;{Es amargo|Tiene un sabor amargo|Sabe amargo}
+
+response:Color;(¿De que color es tu fruta?|¿Que color tiene tu fruta?)
+response:Tamano;(¿Cual es su tamaño?|¿Que tamaño tiene?)
+response:Forma;(¿Cual es su forma?|¿Que forma tiene?)
+response:Sabor;(¿Que sabor tiene?|¿Cual es su sabor?)
+response:Sandia;(Es una sandia)
+response:Manzana;(Es una manzana)
+response:Uvas;(Son uvas)
+response:Pomelo;(Es un pomelo)
+response:Limon;(Es un limón)
+response:Platano;(Es un plátano)
+response:Cerezas;(Son cerezas)
+
+story:Saludo;Color(Color_Verde);Tamano(Tamano_Grande);*Sandia
+story:Saludo;Color(Color_Verde);Tamano(Tamano_Medio);*Manzana
+story:Saludo;Color(Color_Verde);Tamano(Tamano_Pequeno);*Uvas
+story:Saludo;Color(Color_Amarillo);Forma(Forma_Redonda);Tamano(Tamano_Medio);*Pomelo
+story:Saludo;Color(Color_Amarillo);Forma(Forma_Redonda);Tamano(Tamano_Pequeno);*Limon
+story:Saludo;Color(Color_Amarillo);Forma(Forma_Alargada);*Platano
+story:Saludo;Color(Color_Rojo);Tamano(Tamano_Medio);*Manzana
+story:Saludo;Color(Color_Rojo);Tamano(Tamano_Pequeno);Sabor(Sabor_Dulce);*Cerezas
+story:Saludo;Color(Color_Rojo);Tamano(Tamano_Pequeno);Sabor(Sabor_Amargo);*Uvas

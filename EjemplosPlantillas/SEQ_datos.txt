@@ -1,0 +1,11 @@
+
+entities:nombre;telefono
+entity:ciudad
+
+form:nombre;telefono;ciudad
+
+intent:pedir_nombre;{Me llamo [Pablo](nombre)|Me llamo [Ines](nombre)|Mi nombre es [Susana](nombre)|Mi nombre es [Oscar](nombre)|Soy [Antonio](nombre)|Soy [Manuela](nombre)|[Raquel](nombre)|[Macarena](nombre)|Es [Carlos](nombre)|Es [Elena](nombre)|[Yurena](nombre) es mi nombre|[Raul](nombre) es mi nombre|[Olga](nombre) me llaman|[Hernan](nombre) me llaman}
+intent:pedir_telefono;{Mi telefono es [987645374](telefono)|Mi numero es [897463728](telefono)|Es [978124367](telefono)|[676357968](telefono)|El numero de telefono es [677119826](telefono)}
+intent:pedir_ciudad;{Soy de [Granada](ciudad)|Soy de [Huelva](ciudad)|Mi ciudad es [Sevilla](ciudad)|Mi ciudad es [Cáceres](ciudad)|Es [Guadalajara](ciudad)|Es [Jaén](ciudad)|[Almería](ciudad)|[Málaga](ciudad)|}
+
+

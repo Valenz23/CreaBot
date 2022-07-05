@@ -1,0 +1,49 @@
+# la comunicacion hecha por el usuario va entre llaves {}
+# y la comunicacion hecha por el bot va entre parentesis ()
+# se usan como separadores el caracter barra '|' y el caracter pyunto y coma ';'
+# '|' separa dentro de llaves y parenteris
+# ';' separa fuera
+
+
+# entidades
+# solo son necesarias para los bots de asos en secuencia, usualmente van seguidos de formularios (forms) que los contienen
+entities:entidad1;entidad2
+entity:entidad3
+
+
+# formulario 
+form:entidad1;entidad2;entidad3
+
+
+# intents con repuestas hechas por el bot '()' a ejemplos dados por el usuario '{}'
+# comunicacion de usuario y bot, normalmente son saludos o respuestas automaticas
+intent:Ejemplo1;(Respuesta1|Respuesta2|Respuesta3);{Pregunta1|Pregunta2|Pregunta3}
+intent:Ejemplo2;(Respuesta1|Respuesta2);{Pregunta1|Pregunta2}
+intent:Ejemplo3;(Respuesta1);{Pregunta1}
+
+
+# intents con solo ejemplos {}
+# comunicacion del usuario con el bot
+intent:Respuesta1;{Ejemplo1|Ejemplo2}
+intent:Repuesta2;{Ejemplo1}
+
+
+# responses con preguntas ()
+# comunicacion del bot con el usuario
+response:Pregunta1;(Ejemplo1|Ejemplo2)
+response:Pregunta2;(Ejemplo1)
+
+
+# responses solo con las respuestas () finales
+# es igual que el anterior, lo uso para poner las respuestas de los nodos hoja
+response:RespuestaFinal1;(Es una respuesta final)
+response:RespuestaFinal2;(Es otra respuesta final)
+
+
+# stories o ramas
+# los intents que tienen ejemplos y repuestas van solos, los intents que solo tienen ejemplos van como parametro de los responses que tambien solo tienen ejemplos.
+# es necesario marcar con '*' el final de la rama
+story:Ejemplo1;Pregunta1(Repuesta1);*RespuestaFinal1
+story:Ejemplo1;Pregunta1(Repuesta2);*RespuestaFinal2
+story:Ejemplo2;Pregunta2(Repuesta1);*RespuestaFinal1
+story:Ejemplo2;Pregunta2(Repuesta2);*RespuestaFinal2
