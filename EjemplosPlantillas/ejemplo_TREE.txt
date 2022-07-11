@@ -1,0 +1,31 @@
+
+### primero, si hay, se ponen los intents con respuestas y ejemplos ###
+
+intent:PreguntaInicial;(Respuesta1|Otra respuesta1);{Pregunta1|Otra pregunta1}
+
+
+
+### seguido, van los intents con respuestas ###
+
+intent:Respuesta1;{Esto es la respuesta1|Esto es otra respuesta1}
+intent:Respuesta2;{Esto es la respuesta2|Esto es otra respuesta2}
+
+
+
+### ahora, las preguntas a las respuestas anteriores ###
+
+response:Pregunta;(¿Pregunta?|¿Esto es una pregunta?)
+
+
+
+### penultimo, los responses con las respuestas finales (nodos hoja) ###
+
+response:Opcion1;(Es la opcion1)
+response:Opcion2;(Es la opcion2)
+
+
+
+### Y por ultimo, las stories ###
+
+story:PreguntaInicial;Pregunta(Respuesta1);*Opcion1
+story:PreguntaInicial;Pregunta(Respuesta2);*Opcion2

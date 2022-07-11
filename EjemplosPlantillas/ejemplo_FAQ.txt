@@ -1,0 +1,14 @@
+
+### primero van los intents con respuestas y ejemplos ###
+
+intent:Pregunta1;(Respuesta1|Respuestaa1);{Pregunta1|Preguntaa1}
+intent:Pregunta1;(Respuesta21Respuestaa2);{Pregunta2|Preguntaa2}
+intent:Pregunta1;(Respuesta3|Respuestaa3);{Pregunta3|Preguntaa3}
+
+
+
+### y segundo y último, las stories ###
+
+story:Pregunta1
+story:Pregunta2
+story:Pregunta3

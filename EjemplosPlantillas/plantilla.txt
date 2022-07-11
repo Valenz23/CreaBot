@@ -4,42 +4,58 @@
 # '|' separa dentro de llaves y parenteris
 # ';' separa fuera
 
+### ejemplo de entidad ###
+# marcadas con --> entity:
+# solo son necesarias para los bots de pasos en secuencia, van todos en el mismo formulario
 
-# entidades
-# solo son necesarias para los bots de pasos en secuencia, can todos en el mismo formulario
 entities:entidad1;entidad2
 entity:entidad3
 
 
 
-# intents con repuestas hechas por el bot '()' a ejemplos dados por el usuario '{}'
+### ejemplo de intent con respuestas y ejemplos ###
+# marcads con --> intent:
+# estos son los intents con repuestas hechas por el bot '()' a ejemplos dados por el usuario '{}'
 # comunicacion de usuario y bot, normalmente son saludos o respuestas automaticas
+
 intent:Ejemplo1;(Respuesta1|Respuesta2|Respuesta3);{Pregunta1|Pregunta2|Pregunta3}
 intent:Ejemplo2;(Respuesta1|Respuesta2);{Pregunta1|Pregunta2}
 intent:Ejemplo3;(Respuesta1);{Pregunta1}
 
 
-# intents con solo ejemplos {}
+
+### ejemplos de intents con solo ejemplos {} ###
+# estan marcadas con --> intent:
 # comunicacion del usuario con el bot
+
 intent:Respuesta1;{Ejemplo1|Ejemplo2}
 intent:Repuesta2;{Ejemplo1}
 
 
-# responses con preguntas ()
+
+### ejemplo de responses con preguntas () ###
+# estan marcadas con --> response:
 # comunicacion del bot con el usuario
+
 response:Pregunta1;(Ejemplo1|Ejemplo2)
 response:Pregunta2;(Ejemplo1)
 
 
-# responses solo con las respuestas () finales
+
+### ejemplo de responses solo con las respuestas () finales ###
+# estan marcadas con --> response:
 # es igual que el anterior, lo uso para poner las respuestas de los nodos hoja
+
 response:RespuestaFinal1;(Es una respuesta final)
 response:RespuestaFinal2;(Es otra respuesta final)
 
 
-# stories o ramas
+
+### ejemplos de stories o ramas ###
+# marcados con --> story:
 # los intents que tienen ejemplos y repuestas van solos, los intents que solo tienen ejemplos van como parametro de los responses que tambien solo tienen ejemplos.
 # es necesario marcar con '*' el final de la rama
+
 story:Ejemplo1;Pregunta1(Repuesta1);*RespuestaFinal1
 story:Ejemplo1;Pregunta1(Repuesta2);*RespuestaFinal2
 story:Ejemplo2;Pregunta2(Repuesta1);*RespuestaFinal1
