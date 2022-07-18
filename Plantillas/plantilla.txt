@@ -56,6 +56,12 @@ response:RespuestaFinal2;(Es otra respuesta final)
 # los intents que tienen ejemplos y repuestas van solos, los intents que solo tienen ejemplos van como parametro de los responses que tambien solo tienen ejemplos.
 # es necesario marcar con '*' el final de la rama
 
+#para faq
+story:Pregunta1
+story:Pregunta2
+story:Pregunta3
+
+#para tree
 story:Ejemplo1;Pregunta1(Repuesta1);*RespuestaFinal1
 story:Ejemplo1;Pregunta1(Repuesta2);*RespuestaFinal2
 story:Ejemplo2;Pregunta2(Repuesta1);*RespuestaFinal1

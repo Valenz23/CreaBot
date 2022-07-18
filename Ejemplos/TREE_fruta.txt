@@ -1,5 +1,6 @@
 
 intent:Saludo;(¡Hola!|¡Saludos!);{Hola,Muy buenas|Buenas|Buenos dias|Buenas noches}
+
 intent:Color_Verde;{Es verde|Es de color verde|Su color es verde}
 intent:Color_Amarillo;{Es amarilla|Es de color amarillo|Su color es amarillo}
 intent:Color_Rojo;{Es roja|Es de color rojo|Su color es rojo}

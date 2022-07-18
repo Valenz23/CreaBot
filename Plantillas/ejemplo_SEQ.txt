@@ -1,0 +1,13 @@
+
+# primero definimos las entidades
+
+entities:entidad1;entidad2
+entity:entidad3
+
+
+
+# seguido de los intent con respuestas para las entidades
+
+intent:pedir_entidad1;{Es [entidad1](entidad1)| Es otra [entidad1](entidad1)}
+intent:pedir_entidad2;{Es [entidad1](entidad2)| Es otra [entidad1](entidad2)}
+intent:pedir_entidad3;{Es [entidad1](entidad3)| Es otra [entidad1](entidad3)}
