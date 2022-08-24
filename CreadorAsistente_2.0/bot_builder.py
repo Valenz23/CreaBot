@@ -30,17 +30,6 @@ stories_array = []
 
 with open (fichero,'rt',encoding='utf8') as fichero:
     for linea in fichero:
-            
-        #extrae entidades si estan agrupadas
-        if linea.startswith('entities:'):
-            aaa = linea.replace('entities:','').replace('\n','').split(';')            #  quito las cabeceras y los separo por ',' (tambien quito los '\n')
-            for i in aaa:
-                entities_array = np.append(entities_array, i)            
-        # o si van individual
-        if linea.startswith('entity:'):
-           aaa = linea.replace('entity:','').replace('\n','')                         # lo mismo
-           entities_array = np.append(entities_array, aaa)
-        
 
         # los intents 
         if linea.startswith('intent:'):
@@ -114,14 +103,12 @@ try:
         for a in aaa:      
             if(a.startswith('(')):                                      # si empieza por '(' son respuestas del bot
                 # se escribe en domain
-                #None
                 pre = a.replace('(','').replace(')','').split('|')      # se quitan los parentesis y se trocea por ','
                 domain.write('  utter_{}:\n'.format(nombre))
                 for p in pre:
                     domain.write('  - text: "{}"\n'.format(p))
             elif(a.startswith('{')):                                    # si empieza por '{' son ejemplos que le das al bot   
                 # se escribe en nlu
-                #None
                 nlu.write('- intent: {}\n'.format(nombre))
                 nlu.write('  examples: |\n')
                 res = a.replace('{','').replace('}','').split('|')      # lo mismo que antes

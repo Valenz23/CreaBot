@@ -30,13 +30,12 @@ examples = 20
 primera_columna = [
     [sg.HSeparator()],
     [sg.T()],
-    [sg.Text("Selecciona un tipo de asistente")], 
-    #[sg.Combo(size=(25,1), values=["Árbol de decisión", "Árbol de decisión con botones", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
+    [sg.Text("Selecciona un tipo de chatbot")], 
     [sg.Combo(size=(25,1), values=["Árbol de decisión", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
-    [sg.Text("Selecciona un archivo XML")], 
+    [sg.Text("Selecciona un archivo TXT")], 
     [sg.Input(key="-FILE-", enable_events=True), sg.FileBrowse(button_text="Buscar", file_types=(("TXT Files", "*.txt"), ("ALL Files", "*.*")))],
     [sg.Button("Mostrar archivo", size=(46,1), key="-SHOW-")],
     [sg.T()],
@@ -44,9 +43,9 @@ primera_columna = [
     [sg.T()],
     [sg.Text("Selecciona un método para añadir ejemplos")],
     [sg.Combo(size=(25,1), values=["Jaro-Winkler", "LCS", "Coseno", "BM25"], default_value="Jaro-Winkler",readonly=True, key="-ALG-", enable_events=True), sg.Text("Recomendado", key="-RECO-")],
-    [sg.Text("Límite mínimo")],
+    [sg.Text("Límite mínimo de coincidendia")],
     [sg.Combo(size=(25,1), values=["0.1", "0.2", "0.3", "0.4", "0.5"], default_value="0.5",readonly=True, key="-MINLIM-", enable_events=True), sg.Text("%")],
-    [sg.Text("Límite máximo")],
+    [sg.Text("Límite máximo de coincidencia")],
     [sg.Combo(size=(25,1), values=["0.6", "0.7", "0.8", "0.9"], default_value="0.7",readonly=True, key="-MAXLIM-", enable_events=True), sg.Text("%")],
     [sg.Text("Número máximo de ejemplos")],
     [sg.Combo(size=(25,1), values=["10", "20", "30", "40", "50","60", "70", "80", "90", "100"], default_value="20",readonly=True, key="-EXAMPLES-", enable_events=True)],
@@ -60,7 +59,7 @@ primera_columna = [
     [sg.T()],
     [sg.HSeparator()],
     [sg.T()],
-    [sg.Submit(size=(40,5),button_text="Crear asistente", key="-OK-")],
+    [sg.Submit(size=(40,5),button_text="Crear chatbot", key="-OK-")],
     [sg.T()],
     [sg.HSeparator()]
 ]
@@ -99,7 +98,7 @@ def checkcheck():
     c = 0
 
     if fichero == "": 
-        sg.PopupOK("Falta el fichero XML", title="Aviso")  
+        sg.PopupOK("Falta el fichero TXT", title="Aviso")  
     else:        
         with open (fichero,'rt',encoding='utf8') as contenido:  # abro el fichero
             for linea in contenido:                             # y voy mirando linea por linea
@@ -109,10 +108,10 @@ def checkcheck():
 
                 # segun el tipo de bot, se deben chequear distintas cosas                
                 if tipo == "Preguntas Frecuentes":                    
-                    if linea.startswith("entities") or linea.startswith("entity"):                                  # no aceptamos entidades
+                    if linea.startswith("entities") or linea.startswith("entity"):                                                       # no aceptamos entidades
                         errores += "Error: linea {}. En el bot de Preguntas Frecuentes no son necesarias entities\n\n".format(c)
 
-                    elif linea.startswith("response"):                                                              # ni responses
+                    elif linea.startswith("response"):                                                                              # ni responses
                         errores += "Error: linea {}. En el bot de Preguntas Frecuentes no son necesarios responses\n\n".format(c)
 
                     elif linea.startswith("intent"):
@@ -150,7 +149,7 @@ def checkcheck():
                     elif linea.startswith("story"):
                         linea = linea.replace("story:","")
 
-                        if len(linea.split(";")) == 1:          # para este bot, necesito que tenga un argumento para los story                            
+                        if len(linea.split(";")) == 1:                                                              # para este bot, necesito que tenga un argumento para los story                            
                             if linea == "":
                                 errores += "Error: Linea{}. No hay valor\n\n".format(c)
                             else:
@@ -162,7 +161,7 @@ def checkcheck():
 
                 elif tipo == "Secuencia de Pasos":
 
-                    if linea.startswith("entities") or linea.startswith("entity"):              # tienen que haber entidades
+                    if linea.startswith("entities") or linea.startswith("entity"):                                               # tienen que haber entidades
                         if linea.startswith("entities"):
                             linea = linea.replace("entities:","")
                             if not ";" in linea:                    
@@ -170,7 +169,7 @@ def checkcheck():
                             else:
                                 tiene_entitities = True
                         else:
-                            linea = linea.replace("entity","")
+                            linea = linea.replace("entity:","")
                             if ";" in linea:                    
                                 errores += "Error: Linea{}. No hacen falta separadores en esta linea\n\n".format(c)
                             else:
@@ -182,7 +181,7 @@ def checkcheck():
                     elif linea.startswith("intent"):
                         linea = linea.replace("intent:","")
 
-                        if len(linea.split(";")) == 2:          # para este bot, necesito que tengan dos argumentos los intents
+                        if len(linea.split(";")) == 2:                                                          # para este bot, necesito que tengan dos argumentos los intents
                             error = False                       
 
                             for item in linea.split(";"):                                
@@ -372,7 +371,7 @@ while True:
         try:
             if checkcheck():
                 if fichero == "":
-                    sg.PopupOK("Falta el fichero XML", title="Aviso")
+                    sg.PopupOK("Falta el fichero TXT", title="Aviso")
                 elif algoritmo == "":
                     sg.PopupOK("Falta el algoritmo", title="Aviso")
                 elif nombrebot == "":

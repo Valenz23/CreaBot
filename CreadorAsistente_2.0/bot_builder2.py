@@ -39,8 +39,7 @@ with open (fichero,'rt',encoding='utf8') as fichero:
         # o si van individual
         if linea.startswith('entity:'):
            aaa = linea.replace('entity:','').replace('\n','')                         # lo mismo
-           entities_array = np.append(entities_array, aaa)
-        
+           entities_array = np.append(entities_array, aaa)        
 
         # los intents 
         if linea.startswith('intent:'):
@@ -159,7 +158,7 @@ except:
 #### ULTIMOS DETALLES AL FICHERO ####
 #####################################
 
-nlu.write('- intent: Saludo\n')                # intent necesario para activar el form
+nlu.write('- intent: Saludo\n')                             # intent necesario para activar el form
 nlu.write('  examples: |\n')
 nlu.write('    - "Hola"\n')
 nlu.write('    - "Buenas"\n')
@@ -183,7 +182,7 @@ rules.write('      - requested_slot: null\n')
 rules.write('    - action: utter_submit\n')
 rules.write('    - action: utter_slots_values\n')
 
-domain.write('actions:\n')                      # una ultima linea en domain con la accion 
+domain.write('actions:\n')                                  # una ultima linea en domain con la accion 
 domain.write('  - validate_data_form\n')        
 
 nlu.close()
