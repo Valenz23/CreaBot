@@ -29,18 +29,13 @@ examples = 20
 
 primera_columna = [
     [sg.HSeparator()],
-    [sg.T()],
     [sg.Text("Selecciona un tipo de chatbot")], 
     [sg.Combo(size=(25,1), values=["Árbol de decisión", "Preguntas Frecuentes", "Secuencia de Pasos"], default_value="Árbol de decisión",readonly=True, key="-TIPO-", enable_events=True)],
-    [sg.T()],
     [sg.HSeparator()],
-    [sg.T()],
     [sg.Text("Selecciona un archivo TXT")], 
     [sg.Input(key="-FILE-", enable_events=True), sg.FileBrowse(button_text="Buscar", file_types=(("TXT Files", "*.txt"), ("ALL Files", "*.*")))],
     [sg.Button("Mostrar archivo", size=(46,1), key="-SHOW-")],
-    [sg.T()],
     [sg.HSeparator()],
-    [sg.T()],
     [sg.Text("Selecciona un método para añadir ejemplos")],
     [sg.Combo(size=(25,1), values=["Jaro-Winkler", "LCS", "Coseno", "BM25"], default_value="Jaro-Winkler",readonly=True, key="-ALG-", enable_events=True), sg.Text("Recomendado", key="-RECO-")],
     [sg.Text("Límite mínimo de coincidendia")],
@@ -49,18 +44,13 @@ primera_columna = [
     [sg.Combo(size=(25,1), values=["0.6", "0.7", "0.8", "0.9"], default_value="0.7",readonly=True, key="-MAXLIM-", enable_events=True), sg.Text("%")],
     [sg.Text("Número máximo de ejemplos")],
     [sg.Combo(size=(25,1), values=["10", "20", "30", "40", "50","60", "70", "80", "90", "100"], default_value="20",readonly=True, key="-EXAMPLES-", enable_events=True)],
-    [sg.T()],
     [sg.HSeparator()],
-    [sg.T()],
     [sg.Text("Indica un nombre para el asistente")],
     [sg.Input(key="-NAME-", enable_events=True)],
     [sg.Text("Y una localización")],
     [sg.Input(key="-FOLDER-", enable_events=True), sg.FolderBrowse(button_text="Elegir")],
-    [sg.T()],
     [sg.HSeparator()],
-    [sg.T()],
-    [sg.Submit(size=(40,5),button_text="Crear chatbot", key="-OK-")],
-    [sg.T()],
+    [sg.Submit(size=(40,3),button_text="Crear chatbot", key="-OK-")],
     [sg.HSeparator()]
 ]
 
@@ -79,7 +69,7 @@ layout = [
     ]
 ]
 
-window = sg.Window("Creador de Asistentes con RASA", layout, size=(1400, 900))
+window = sg.Window("Creador de Asistentes con RASA", layout, size=(1000, 600))
 
 
 
