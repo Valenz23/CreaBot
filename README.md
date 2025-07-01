@@ -6,6 +6,8 @@
 **👨‍💻 Autor:** Pablo Valenzuela Álvarez  
 **📚 Director:** David Griol Barres  
 
+**📝 Calificación:** 9.4
+
 ## 📌 Resumen  
 
 Este es el repositorio de mi Trabajo de Fin de Grado, cuyo objetivo es el desarrollo de chatbots personalizados mediante sistemas conversacionales, árboles de decisión y otras técnicas estadísticas. Para ello, se ha implementado un asistente capaz de generar automáticamente los archivos necesarios para configurar un chatbot según las necesidades del usuario. Basta con proporcionar un archivo de configuración en el formato adecuado, y el sistema generará los ficheros correspondientes. La plataforma utilizada es **Rasa Open Source**, una solución de código abierto que permite crear chatbots capaces de interpretar el significado de las consultas, mantener el contexto de la conversación y responder de manera coherente.  
